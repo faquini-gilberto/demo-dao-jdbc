@@ -97,11 +97,16 @@ public class SellerDaoJDBC implements SellerDao {
 			
 			st.setInt(1, id);
 
-			st.executeUpdate();
+			int rows = st.executeUpdate();
 
-		} catch (SQLException e) {
+			if (rows == 0) {
+				throw new DbException("Id not found!!!");
+			}
+		} 
+		catch (SQLException e) {
 			throw new DbException(e.getMessage());
-		} finally {
+		} 
+		finally {
 			DB.closeStatement(st);
 		}
 
