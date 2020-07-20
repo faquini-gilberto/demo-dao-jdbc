@@ -31,10 +31,15 @@ public class Program {
 
 		System.out.println("--    Insert    --");
 		
-		seller = new Seller(null, "Shark", "shark@gmail.com", new Date(), 2500.90, department);
-		sellerDao.insert(seller);
-		System.out.println("Registro adicionado. " + seller.getId());;
+		Seller newSeller = new Seller(null, "Shark3", "shark@gmail.com", new Date(), 2500.90, department);
+		sellerDao.insert(newSeller);
+		System.out.println("Registro adicionado. " + newSeller.getId());;
 		
+		System.out.println("--    Update    --");
+		seller = sellerDao.findById(1);
+		seller.setName("Babi");
+		sellerDao.update(seller);
+		System.out.println("Update completed");
 	}
 
 }
