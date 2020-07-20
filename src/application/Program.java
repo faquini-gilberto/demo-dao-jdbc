@@ -31,7 +31,7 @@ public class Program {
 
 		System.out.println("--    Insert    --");
 		
-		Seller newSeller = new Seller(null, "Shark3", "shark@gmail.com", new Date(), 2500.90, department);
+		Seller newSeller = new Seller(null, "Shark4", "shark@gmail.com", new Date(), 2500.90, department);
 		sellerDao.insert(newSeller);
 		System.out.println("Registro adicionado. " + newSeller.getId());;
 		
@@ -40,6 +40,11 @@ public class Program {
 		seller.setName("Babi");
 		sellerDao.update(seller);
 		System.out.println("Update completed");
+		
+		System.out.println("--    Delete    --");
+		
+		sellerDao.deleteById(10);
+		System.out.println("Delete completed");
 	}
 
 }
