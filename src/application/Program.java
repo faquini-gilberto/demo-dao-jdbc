@@ -10,17 +10,21 @@ import model.entities.Seller;
 public class Program {
 
 	public static void main(String[] args) {
-		
+
 		SellerDao sellerDao = DaoFactory.createSellerDao();
-		
+
 		Seller seller = sellerDao.findById(3);
 		System.out.println(seller);
 		System.out.println("--------------------");
-		
+
 		Department department = new Department(2, null);
 		List<Seller> list = sellerDao.findByDepartment(department);
 		list.forEach(System.out::println);
-		
+
+		System.out.println("--------------------");
+
+		List<Seller> list1 = sellerDao.findAll();
+		list1.forEach(System.out::println);
 
 	}
 
